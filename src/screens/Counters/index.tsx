@@ -1,9 +1,10 @@
 import React from 'react';
-import {FlatList, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList} from 'react-native';
 import {ScreenComponent} from '../../models/ScreenComponent';
 import getCounter from '../../hooks/useCounter';
 import CounterDisplay from './components/counterDisplay';
 import EmptyListPlaceholder from './components/emptyListPlaceholder';
+import {PageContainer} from './style';
 
 type CountersProps = ScreenComponent<{}>;
 
@@ -11,7 +12,7 @@ const Counters: React.FC<CountersProps> = props => {
     const {count} = getCounter();
 
     return (
-        <View>
+        <PageContainer>
             <FlatList
                 data={count.counters}
                 renderItem={({item}) => (
@@ -22,7 +23,7 @@ const Counters: React.FC<CountersProps> = props => {
                 )}
                 ListEmptyComponent={EmptyListPlaceholder}
             />
-        </View>
+        </PageContainer>
     );
 };
 

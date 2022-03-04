@@ -28,6 +28,17 @@ export const decrementCounter = (
     return {...state, counters: decrementedCounterArray};
 };
 
+export const resetCounter = (
+    state: CountersState,
+    id: string,
+): CountersState => {
+    const decrementedCounterArray = state.counters.map(counter => {
+        if (counter.id === id) return {...counter, value: 0};
+        return counter;
+    });
+    return {...state, counters: decrementedCounterArray};
+};
+
 export const createCounter = (
     state: CountersState,
     id: string,
@@ -45,7 +56,7 @@ export const removeCounter = (
     const filteredCounters = state.counters.filter(
         counter => counter.id !== id,
     );
-    return {...state, counters: filteredCounters};
+    return {...state, counters: filteredCounters, selected: undefined};
 };
 
 export const selectCounter = (

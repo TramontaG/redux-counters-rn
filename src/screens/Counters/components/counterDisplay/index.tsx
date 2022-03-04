@@ -1,6 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import getCounter from '../../../../hooks/useCounter';
 import {CounterState} from '../../../../store';
+import {counterFormat} from '../../../../util/counterFormat';
+
+import {
+    CounterContainer,
+    CounterLabel,
+    CounterValue,
+    DataContainer,
+} from './style';
 
 type CounterDisplayProps = {
     counter: CounterState;
@@ -8,12 +16,20 @@ type CounterDisplayProps = {
 };
 
 const CounterDisplay: React.FC<CounterDisplayProps> = props => {
+    const {count, actions} = getCounter();
+    const selected = count.selected === props.counter.id;
+    const counterLabel = `Counter #${props.counter.id}`;
+    const counterValue = counterFormat(props.counter.value);
+
+    const selectCounter = () => actions.selectCounter(props.counter.id);
+
     return (
-        <View>
-            <Text>Counter #{props.counter.id}</Text>
-            <Text>{props.counter.value}</Text>
-            <Text>active: {props.activeCounter === props.counter.id}</Text>
-        </View>
+        <DataContainer selected={selected}>
+            <CounterContainer onPress={selectCounter}>
+                <CounterLabel>{counterLabel}</CounterLabel>
+                <CounterValue>{counterValue}</CounterValue>
+            </CounterContainer>
+        </DataContainer>
     );
 };
 

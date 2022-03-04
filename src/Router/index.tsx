@@ -5,50 +5,46 @@ import {
     createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 import Screens from './../screens';
-import TabBarIcon from './TabBarIcon';
+import TabBarIcon from './components/TabBarIcon';
 import {colors} from '../Theme';
+import Header from './components/Header';
 
 const Tabs = createBottomTabNavigator();
 
-const generalTabStyle: BottomTabNavigationOptions = {
+const getGeneralOptions = (iconName: string): BottomTabNavigationOptions => ({
+    tabBarIcon: options => (
+        <TabBarIcon
+            {...options}
+            name={iconName}
+            color={options.focused ? 'gold' : options.color}
+        />
+    ),
     headerPressColor: colors.blue[20],
-    headerStyle: {
-        backgroundColor: colors.blue[20],
-    },
     tabBarStyle: {
         backgroundColor: colors.blue[20],
     },
-};
+    tabBarActiveTintColor: 'gold',
+    tabBarInactiveTintColor: colors.blue[80],
+    header: ({route}) => (
+        <Header
+            title={route.name}
+            bgColor={colors.blue[20]}
+            textColor={'white'}
+        />
+    ),
+});
 
 const Router = () => {
     return (
         <NavigationContainer>
             <Tabs.Navigator>
                 <Tabs.Screen
-                    options={{
-                        tabBarIcon: options => (
-                            <TabBarIcon
-                                {...options}
-                                name="text-document"
-                                color={options.focused ? 'gold' : options.color}
-                            />
-                        ),
-                        ...generalTabStyle,
-                    }}
+                    options={getGeneralOptions('text-document')}
                     name="Counters"
                     component={Screens.Counters}
                 />
                 <Tabs.Screen
-                    options={{
-                        tabBarIcon: options => (
-                            <TabBarIcon
-                                {...options}
-                                name="dots-three-horizontal"
-                                color={options.focused ? 'gold' : options.color}
-                            />
-                        ),
-                        ...generalTabStyle,
-                    }}
+                    options={getGeneralOptions('dots-three-horizontal')}
                     name="Config"
                     component={Screens.Settings}
                 />

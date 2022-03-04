@@ -1,5 +1,5 @@
 export type CounterAction = {
-    type: 'Increment' | 'Decrement' | 'Create' | 'Delete' | 'Select';
+    type: 'Increment' | 'Decrement' | 'Create' | 'Delete' | 'Select' | 'Reset';
     payload: {
         timerId: string;
     };
@@ -39,3 +39,19 @@ export const selectCounter = (id: string): CounterAction => ({
         timerId: id,
     },
 });
+
+export const resetCounter = (id: string): CounterAction => ({
+    type: 'Reset',
+    payload: {
+        timerId: id,
+    },
+});
+
+export default {
+    increment,
+    decrement,
+    createCounter,
+    deleteCounter,
+    selectCounter,
+    resetCounter,
+};

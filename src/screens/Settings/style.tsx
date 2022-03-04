@@ -14,22 +14,20 @@ export const ButtonsContainer = styled.View`
 `;
 
 export const Button = styled.TouchableOpacity`
-    width: 35%;
-    padding: 16px;
+    width: 45%;
+    padding: 8px 16px;
     background: #ddd;
     align-items: center;
     justify-content: center;
     border-radius: 5px;
     elevation: 10;
-    border-color: ${colors.blue[20]};
-    border-width: 1px;
-    border-style: solid;
+    border: solid ${colors.blue[20]} 1px;
 `;
 
 export const BoldText = styled.Text`
     font-weight: bold;
     color: ${colors.blue[60]};
-    font-size: 18px;
+    font-size: 22px;
     text-align: center;
 `;
 
@@ -37,7 +35,7 @@ export const Title = styled.Text`
     font-weight: bold;
     color: ${colors.blue[40]};
     font-size: 22px;
-    text-align: justify;
+    text-align: left;
     margin-top: 16px;
     margin-bottom: 16px;
 `;

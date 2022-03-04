@@ -6,6 +6,7 @@ import {
     incrementCounter,
     decrementCounter,
     removeCounter,
+    resetCounter,
 } from './Slice';
 
 export type CounterState = {
@@ -38,6 +39,8 @@ export const counterReducer = (state = appState, action: CounterAction) => {
         return removeCounter(state, action.payload.timerId);
     if (action.type === 'Select')
         return selectCounter(state, action.payload.timerId);
+    if (action.type === 'Reset')
+        return resetCounter(state, action.payload.timerId);
     return appState;
 };
 
