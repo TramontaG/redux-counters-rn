@@ -1,6 +1,6 @@
 import React from 'react';
-import useCounter from '../../../../hooks/useCounter';
-import {counterFormat} from '../../../../util/counterFormat';
+import useCounter from 'hooks/useCounter';
+import {counterFormat} from 'util/counterFormat';
 import {Title, BoldText, BigButton, SmallButton, Container, Row} from './style';
 
 type CounterControlsProps = {};

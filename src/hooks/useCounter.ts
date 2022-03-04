@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from 'react-redux';
-import {CountersSelector, CountersState} from '../store';
-import actions from '../store/actions';
+import {CountersSelector, CountersState} from 'store';
+import actions from 'store/actions';
 
 type Counters = {
     count: CountersState;
@@ -11,6 +11,7 @@ type Counters = {
 
 const useCounter = (): Counters => {
     const dispatch = useDispatch();
+
     const count = useSelector<CountersSelector>(
         state => state.counters,
     ) as CountersState;

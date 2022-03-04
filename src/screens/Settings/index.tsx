@@ -1,6 +1,6 @@
 import React from 'react';
-import {ScreenComponent} from '../../models/ScreenComponent';
-import getCounter from '../../hooks/useCounter';
+import {ScreenComponent} from 'models/ScreenComponent';
+import getCounter from 'hooks/useCounter';
 import {View} from 'react-native';
 import {
     ButtonsContainer,

@@ -1,7 +1,7 @@
 import React from 'react';
-import getCounter from '../../../../hooks/useCounter';
-import {CounterState} from '../../../../store';
-import {counterFormat} from '../../../../util/counterFormat';
+import getCounter from 'hooks/useCounter';
+import {CounterState} from 'store';
+import {counterFormat} from 'util/counterFormat';
 
 import {
     CounterContainer,

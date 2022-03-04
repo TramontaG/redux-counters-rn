@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {colors} from '../../Theme';
+import {colors} from 'theme';
 
 export const PageContainer = styled.View`
     padding: 16px;
