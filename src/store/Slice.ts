@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {CounterState, CountersState, appState, counterReducer} from '.';
+import {CounterState, CountersState, appState, counterReducer} from 'store';
 
 const getNewCounter = (id: string): CounterState => ({
     id: id,
